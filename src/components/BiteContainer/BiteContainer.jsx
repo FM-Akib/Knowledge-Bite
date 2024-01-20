@@ -5,6 +5,21 @@ import { useEffect } from 'react';
 import Blog from '../Blog/Blog';
 import Bookmark from '../Bookmark/Bookmark';
 
+import toast, { Toaster } from 'react-hot-toast';
+const notify = () => toast.error("Already Bookmarked!!")
+const ReadNotify=()=>toast.success('Read Complete!')
+const BookmarkNotify=()=>toast.success('Blog Bookmarked.', {
+    style: {
+      border: '1px solid #713200',
+      padding: '16px',
+      color: '#713200',
+    },
+    iconTheme: {
+      primary: '#713200',
+      secondary: '#FFFAEE',
+    },
+  });
+
 const BiteContainer = () => {
     const [blogs,setBlogs]=useState([]);
     const [bookMarks,setBookmarks] = useState([]);
@@ -17,22 +32,36 @@ const BiteContainer = () => {
     },[])
 
 
-    const BookmarkBlog=(blog)=>{
+    const BookmarkBlog=(newblog)=>{
 
-        const newBookmark=[...bookMarks,blog]
+        for(const blog of bookMarks){
+            
+             if(blog.id === newblog.id){
+                notify();
+                return;
+             }
+        }
+            
+
+        const newBookmark=[...bookMarks,newblog]
         setBookmarks(newBookmark)
         console.log(bookMarks) 
+        BookmarkNotify()
     }
 
     
     const MarkAsRead=(time)=>{
         setTotalTime(TotalTime+time) 
-    //    console.log(totaltime);
+        ReadNotify()
+
     }
     
    
     return (
+        <>
+        <div><Toaster/></div>
         <div className="BiteContainer">
+            
             <div className="blogs">
                 {
                     blogs.map(blog=><Blog
@@ -63,6 +92,7 @@ const BiteContainer = () => {
 
             </div>
         </div>
+        </>
     );
 };
 
