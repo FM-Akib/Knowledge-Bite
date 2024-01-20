@@ -2,12 +2,12 @@
 import './Bookmark.css';
 
 
-const Bookmark = () => {
+const Bookmark = (prop) => {
+   
+
     return (
         <div className="BookmarkCom">
-            <div className="TimeShow">
-            <h3>Spent time on read : 177 min</h3>    
-            </div> 
+            <h3>{prop.bookMark.title}</h3>
         </div>
     );
 };
