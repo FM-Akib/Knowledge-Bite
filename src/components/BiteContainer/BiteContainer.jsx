@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './BiteContainer.css';
 import { useEffect } from 'react';
 import Blog from '../Blog/Blog';
+import Bookmark from '../Bookmark/Bookmark';
 
 const BiteContainer = () => {
     const [blogs,setBlogs]=useState([]);
@@ -23,7 +24,7 @@ const BiteContainer = () => {
                 }
             </div>
             <div className="bookmark">
-                BookmarkS
+                <Bookmark></Bookmark>
             </div>
         </div>
     );

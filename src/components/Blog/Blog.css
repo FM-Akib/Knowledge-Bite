@@ -44,11 +44,11 @@ line-height: 160%;
     margin: 0;
     color:#7e7c7cdd;
 }
-.bookmark{
+.bookmarkSection{
     display: flex;
     align-items: center;
 }
-.bookmark p{
+.bookmarkSection p{
     color:#7e7c7cdd;
 margin-right: 10px;
 }

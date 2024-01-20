@@ -1,0 +1,15 @@
+.TimeShow{
+    
+    border-radius:8px;
+    padding:20px 50px;
+    border: 1px solid #6047EC;
+
+background: rgba(96, 71, 236, 0.10);
+}
+.BookmarkCom{
+    width:100%;
+}
+.TimeShow h3{
+    text-align: center;
+    margin: 0;
+}

@@ -22,7 +22,7 @@ const Blog = (prop) => {
                     <p>13 January</p>
                 </div>
                 </div>
-                <div className='bookmark'>
+                <div className='bookmarkSection'>
                 <p>{readTime} min read</p>
                 <button className='bookmark-btn'><FontAwesomeIcon className='bookmark-icn' icon={faBookmark} /></button>
                 </div>
