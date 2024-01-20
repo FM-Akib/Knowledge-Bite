@@ -72,9 +72,9 @@ margin-right: 10px;
     background-color:rgb(143, 218, 248);
     border: none;
 }
+
 .markRead-btn:hover{
     border: none;
-
     background-color:rgb(106, 204, 243);
 
 }

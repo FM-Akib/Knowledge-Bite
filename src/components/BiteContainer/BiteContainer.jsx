@@ -8,6 +8,7 @@ import Bookmark from '../Bookmark/Bookmark';
 const BiteContainer = () => {
     const [blogs,setBlogs]=useState([]);
     const [bookMarks,setBookmarks] = useState([]);
+    const [TotalTime,setTotalTime] = useState(0);
 
     useEffect(() => {
         fetch('blogs.json')
@@ -23,9 +24,9 @@ const BiteContainer = () => {
         console.log(bookMarks) 
     }
 
-    // let totaltime = 0;
+    
     const MarkAsRead=(time)=>{
-    //    totaltime+=time;
+        setTotalTime(TotalTime+time) 
     //    console.log(totaltime);
     }
     
@@ -45,7 +46,7 @@ const BiteContainer = () => {
             <div className="bookmark">
 
                 <div className="TimeShow">
-                <h3>Spent time on read : 0 min</h3>    
+                <h3>Spent time on read : {TotalTime} min</h3>    
                 </div>
 
 
