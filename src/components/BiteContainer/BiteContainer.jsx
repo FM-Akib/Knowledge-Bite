@@ -4,6 +4,10 @@ import './BiteContainer.css';
 import { useEffect } from 'react';
 import Blog from '../Blog/Blog';
 import Bookmark from '../Bookmark/Bookmark';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faBookBookmark } from '@fortawesome/free-solid-svg-icons';
+
 
 import toast, { Toaster } from 'react-hot-toast';
 const notify = () => toast.error("Already Bookmarked!!")
@@ -75,12 +79,12 @@ const BiteContainer = () => {
             <div className="bookmark">
 
                 <div className="TimeShow">
-                <h3>Spent time on read : {TotalTime} min</h3>    
+                <h3><FontAwesomeIcon icon={faClock} style={{color: "#ffd500",}} />  Spent time on read : {TotalTime} min</h3>    
                 </div>
 
 
                 <div className="Bookmark-Holder">
-                     <h2>Total Bookmark: {bookMarks.length}</h2>
+                     <h2><FontAwesomeIcon icon={faBookBookmark} />  Total Bookmark: {bookMarks.length}</h2>
                 {
                     bookMarks.map(bookMark=> <Bookmark
                      key={bookMark.id}
