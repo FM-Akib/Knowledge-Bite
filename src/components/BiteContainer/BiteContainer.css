@@ -2,3 +2,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
+.blogs{
+    margin-top:35px;
+}
