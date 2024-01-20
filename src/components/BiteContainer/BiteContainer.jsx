@@ -10,6 +10,7 @@ import { faBookBookmark } from '@fortawesome/free-solid-svg-icons';
 
 
 import toast, { Toaster } from 'react-hot-toast';
+import { AddToDB, AddToTimeDB, GetPreviousBM, GetPreviousTime } from '../../Utilities/fakedb';
 const notify = () => toast.error("Already Bookmarked!!")
 const ReadNotify=()=>toast.success('Read Complete!')
 const BookmarkNotify=()=>toast.success('Blog Bookmarked.', {
@@ -36,28 +37,47 @@ const BiteContainer = () => {
     },[])
 
 
+    useEffect(() => {
+          const previousBM=GetPreviousBM();
+          const previousMarked=[];
+
+          for(const id in previousBM){
+            const blogBM=blogs.find(b=>b.id==id);
+            if(blogBM){
+                previousMarked.push(blogBM);
+            }
+          }
+          setBookmarks(previousMarked)
+    },[blogs])
+
+
+    useEffect(()=>{
+       const previousTime=GetPreviousTime();
+       setTotalTime(previousTime)
+    },[])
     const BookmarkBlog=(newblog)=>{
 
         for(const blog of bookMarks){
             
-             if(blog.id === newblog.id){
-                notify();
-                return;
-             }
+            if(blog.id === newblog.id){
+              notify();
+              return;
+            }
         }
             
-
         const newBookmark=[...bookMarks,newblog]
         setBookmarks(newBookmark)
-        console.log(bookMarks) 
+        AddToDB(newblog.id)
         BookmarkNotify()
     }
 
     
     const MarkAsRead=(time)=>{
-        setTotalTime(TotalTime+time) 
+        const TimeAdded=TotalTime+time;
+        setTotalTime(TimeAdded) 
         ReadNotify()
 
+        AddToTimeDB(TimeAdded);
     }
     
    
@@ -84,7 +104,7 @@ const BiteContainer = () => {
 
 
                 <div className="Bookmark-Holder">
-                     <h2><FontAwesomeIcon icon={faBookBookmark} />  Total Bookmark: {bookMarks.length}</h2>
+                <h2><FontAwesomeIcon icon={faBookBookmark} />  Total Bookmark: {bookMarks.length}</h2>
                 {
                     bookMarks.map(bookMark=> <Bookmark
                      key={bookMark.id}
@@ -92,7 +112,7 @@ const BiteContainer = () => {
                     ></Bookmark>)
                 }               
          
-         </div>
+                </div>
 
             </div>
         </div>
