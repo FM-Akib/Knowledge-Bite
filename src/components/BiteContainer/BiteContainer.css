@@ -57,6 +57,37 @@ background: rgba(96, 71, 236, 0.10);
     .BiteContainer{
         /* display: grid; */
         grid-template-columns: 1fr;
-        padding:2rem;
+       
+    }
+    .blogs{
+        margin-top:20px;
+    }
+    .bookmark{
+        padding-top: 20px;
+        padding-left: 0;
+        width: 320px;
+        
+    }
+    .TimeShow{
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        border-radius:8px;
+        padding:10px 20px;
+        border: 1px solid #6047EC;
+        width: 80%;
+    
+    background: rgba(96, 71, 236, 0.10);
+    }
+    .TimeShow h3{
+        font-size: 16px;
+    }
+    .Bookmark-Holder{
+        width: 75%;
+    }
+    .Bookmark-Holder h2{
+        font-size: 16px;
+
+    
     }
   }
