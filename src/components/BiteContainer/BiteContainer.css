@@ -47,3 +47,16 @@ background: rgba(96, 71, 236, 0.10);
 .trash-icn:hover{
     color: rgb(177, 0, 36);
 }
+
+
+
+
+
+@media only screen and (max-width: 426px) {
+  
+    .BiteContainer{
+        /* display: grid; */
+        grid-template-columns: 1fr;
+        padding:2rem;
+    }
+  }
