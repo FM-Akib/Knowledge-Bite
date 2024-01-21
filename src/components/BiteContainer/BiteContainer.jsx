@@ -7,6 +7,7 @@ import Bookmark from '../Bookmark/Bookmark';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { faBookBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 import toast, { Toaster } from 'react-hot-toast';
@@ -80,6 +81,14 @@ const BiteContainer = () => {
         AddToTimeDB(TimeAdded);
     }
     
+    const DeleteFromLocalStorage=()=>{
+        localStorage.removeItem('bookmared')
+        localStorage.removeItem('totalTime')
+        setTotalTime(0)
+        setBookmarks([])
+
+
+    }
    
     return (
         <>
@@ -100,6 +109,7 @@ const BiteContainer = () => {
 
                 <div className="TimeShow">
                 <h3><FontAwesomeIcon icon={faClock} style={{color: "#ffd500",}} />  Spent time on read : {TotalTime} min</h3>    
+                <button onClick={()=>{DeleteFromLocalStorage()}} title="Remove all Bookmark." className="bookmark-trash-btn"><FontAwesomeIcon className="trash-icn" icon={faTrash} /> </button>
                 </div>
 
 

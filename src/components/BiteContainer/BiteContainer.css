@@ -15,7 +15,9 @@
     margin: 0;
 }
 .TimeShow{
-    
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
     border-radius:8px;
     padding:20px 50px;
     border: 1px solid #6047EC;
@@ -31,4 +33,17 @@ background: rgba(96, 71, 236, 0.10);
 .Bookmark-Holder h2{
     color: crimson;
 
+}
+.bookmark-trash-btn{
+    background-color:white;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.trash-icn{
+    color: crimson;
+}
+.trash-icn:hover{
+    color: rgb(177, 0, 36);
 }
